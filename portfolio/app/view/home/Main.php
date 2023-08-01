@@ -1290,7 +1290,7 @@
 					<!-- Contact info single start -->
 					<div class="contact-info-single wow fadeInUp" data-wow-delay="0.9s">
 						<h3>E-mail</h3>
-						<p>lucasrvacari9@gmail.com <br />lucasrvacari99@gmail.com</p>
+						<p>lucasrvacari9@gmail.com</p>
 					</div>
 					<!-- Contact info single end -->
 				</div>

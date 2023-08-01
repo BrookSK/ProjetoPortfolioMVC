@@ -55,143 +55,6 @@
 				<br>
 				<br>
 				<!-- Section text end -->
-				<div class="col-md-8 offset-md-2">
-					<div class="section-title">
-						<h2>Entre em contato e tenha um orçamento personalizado para o seu nogócio!</h2>
-					</div>
-					<!-- Contact Form start -->
-					<div class="contact-form">
-						<form id="formContact1" action="https://formsubmit.co/ajax/lucasrvacari9@gmail.com"
-							method="post" data-form="formContact1">
-							<div class="row">
-								<div class="form-group col-md-6 col-sm-6">
-									<input type="text" class="form-control" placeholder="Seu nome" name="nome" id="nome"
-										required />
-								</div>
-
-								<div class="form-group col-md-6 col-sm-6">
-									<input type="email" class="form-control" placeholder="E-mail" name="email"
-										id="email" required />
-								</div>
-
-								<div class="form-group col-md-12 col-sm-12">
-									<textarea rows="4" class="form-control" placeholder="Conte-me como posso ajuda-lo"
-										name="mensagem" id="mensagem" required></textarea>
-								</div>
-
-								<div class="col-md-12 col-sm-12 text-center">
-									<button type="submit" class="btn-contact" data-button="enviar">Enviar</button>
-								</div>
-							</div>
-						</form>
-						<div id="formMessages"></div>
-						<script>
-							class FormSubmitOne {
-								constructor(settings) {
-									this.settings = settings;
-									this.form = document.querySelector(settings.form);
-									this.formButton = document.querySelector(settings.button);
-									if (this.form) {
-										this.url = this.form.getAttribute("action");
-									}
-									this.sendForm = this.sendForm.bind(this);
-								}
-								displaySuccess() {
-									// Remover as mensagens de sucesso ou erro anteriores
-									document.getElementById("formMessages").innerHTML = "";
-
-									const successMessage = document.createElement("div");
-									successMessage.className = "mensagem";
-									successMessage.textContent = "Formulário enviado com sucesso!";
-									document.getElementById("formMessages").appendChild(successMessage);
-
-									// Limpar os campos do formulário após o envio bem-sucedido
-									const fields = this.form.querySelectorAll("[name]");
-									fields.forEach((field) => {
-										field.value = "";
-									});
-
-									// Reverter o botão de "Enviando..." para "Enviar"
-									this.formButton.disabled = false;
-									this.formButton.innerText = "Enviar";
-								}
-								displayError() {
-									// Remover as mensagens de sucesso ou erro anteriores
-									document.getElementById("formMessages").innerHTML = "";
-
-									const errorMessage = document.createElement("div");
-									errorMessage.className = "mensagem";
-									errorMessage.textContent = "Não foi possível enviar sua mensagem!";
-									document.getElementById("formMessages").appendChild(errorMessage);
-
-									// Reverter o botão de "Enviando..." para "Enviar"
-									this.formButton.disabled = false;
-									this.formButton.innerText = "Enviar";
-								}
-								getFormObject() {
-									const formObject = {};
-									const fields = this.form.querySelectorAll("[name]");
-									fields.forEach((field) => {
-										formObject[field.getAttribute("name")] = field.value;
-									});
-									return formObject;
-								}
-								onSubmission(event) {
-									event.preventDefault();
-									event.target.disabled = true;
-									event.target.innerText = "Enviando...";
-								}
-								async sendForm(event) {
-									try {
-										this.onSubmission(event);
-										await fetch(this.url, {
-											method: "POST",
-											headers: {
-												"Content-Type": "application/json",
-												Accept: "application/json",
-											},
-											body: JSON.stringify(this.getFormObject()),
-										});
-										this.displaySuccess();
-									} catch (error) {
-										this.displayError();
-										throw new Error(error);
-									}
-								}
-								init() {
-									if (this.form) this.formButton.addEventListener("click", this.sendForm);
-									return this;
-								}
-							}
-
-							const formSubmitOne = new FormSubmitOne({
-								form: "[data-form]",
-								button: "[data-button]",
-								success: "<div class='mensagem' id='mensagemEnviada'>Formulário enviado com sucesso!</div>",
-								error: "<div class='mensagem' id='mensagemEnviada'>Não foi possível enviar sua mensagem!</div>",
-							});
-
-							formSubmitOne.init();
-						</script>
-					</div>
-					<!-- Contact Form end -->
-				</div>
-				<br>
-				<!-- Footer Social Link start -->
-				<div class="footer-social">
-					<a target="_blank" href="https://github.com/BrookSK"><i class="fa fa-github"></i></a>
-					<a target="_blank" href="https://www.instagram.com/lucas_vacarii/"><i
-							class="fa fa-instagram"></i></a>
-					<a target="_blank" href="https://www.linkedin.com/in/lucas-vacari-80139a228/"><i
-							class="fa fa-linkedin"></i></a>
-					<a target="_blank" href="https://twitter.com/VacariR"><i class="fa fa-twitter"></i></a>
-					<a target="_blank"
-						href="https://api.whatsapp.com/send?phone=5517991190528&text=Ol%C3%A1,%20vim%20pelo%20seu%20site%20de%20portfolio%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20....."><i
-							class="fa fa-whatsapp"></i></a>
-				</div>
-				<!-- Footer Social Link end -->
-				<br>
-				<br>
 				<!-- Section text start -->
 				<div class="section-title">
 					<h2>Como funciona a <span>manutenção de um site</span></h2>
@@ -429,6 +292,33 @@
 		</div>
 		<br>
 		<br>
+		<div class="row">
+			<div class="col-md-12">
+				<!-- Section title start -->
+				<div class="section-title plans">
+					<h2>Domíno do seu site</h2>
+					<p>Algumas informações importantes sobre o domínio do seu site</p>
+				</div>
+				<!-- Section title end -->
+				<div class="footer-about">
+					<p>O primeiro pagamento do domínio, é incluído no orçamento, feito na conta do cliente. Após
+						o primeiro pagamento, a próxima cobrança, será feita somente 1 ano depois, no valor de
+						<b>R$40,00</b>
+					</p>
+					<p>O domínio é o endereço exclusivo que os visitantes digitam em seus navegadores para
+						acessar o seu site, como "www.seudominio.com".</p>
+					<p>Assim como a hospedagem, o domínio também requer um pagamento periódico para manter a
+						propriedade e o uso contínuo do endereço. Normalmente, a renovação do domínio é feita
+						anualmente e o pagamento deve ser realizado dentro do prazo estipulado para evitar a
+						perda do domínio.</p>
+					<p>O domínio é feito pelo site https://registro.br e eu auxilio em todo o processo, e ele so
+						precisa ser pago uma vez ao ano!</p>
+					<p>O ".com.br" custa <b>R$40,00/ano</b></p>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
 		<div class="row bgesc">
 			<div class="col-md-12">
 				<!-- Section title start -->
@@ -449,23 +339,128 @@
 		</div>
 		<br>
 		<br>
-		<div class="row">
-			<div class="col-md-12">
-				<!-- Section title start -->
-				<div class="section-title plans">
-					<h2>Domíno do seu site</h2>
-					<p>Algumas informações importantes sobre o domínio do seu site</p>
-				</div>
-				<!-- Section title end -->
-				<div class="footer-about">
-					<p>O primeiro pagamento do domínio, é incluído no orçamento, feito na conta do cliente. Após o primeiro pagamento, a próxima cobrança, será feita somente 1 ano depois, no valor de <b>R$40,00</b></p>
-					<p>O domínio é o endereço exclusivo que os visitantes digitam em seus navegadores para acessar o seu site, como "www.seudominio.com".</p>
-					<p>Assim como a hospedagem, o domínio também requer um pagamento periódico para manter a propriedade e o uso contínuo do endereço. Normalmente, a renovação do domínio é feita anualmente e o pagamento deve ser realizado dentro do prazo estipulado para evitar a perda do domínio.</p>
-					<p>O domínio é feito pelo site https://registro.br e eu auxilio em todo o processo, e ele so precisa ser pago uma vez ao ano!</p>
-					<p>O ".com.br" custa <b>R$40,00/ano</b></p>
-				</div>
+		<div class="col-md-8 offset-md-2">
+			<div class="section-title">
+				<h2>Entre em contato e tenha um orçamento personalizado para o seu nogócio!</h2>
 			</div>
+			<!-- Contact Form start -->
+			<div class="contact-form">
+				<form id="formContact1" action="https://formsubmit.co/ajax/lucasrvacari9@gmail.com" method="post"
+					data-form="formContact1">
+					<div class="row">
+						<div class="form-group col-md-6 col-sm-6">
+							<input type="text" class="form-control" placeholder="Seu nome" name="nome" id="nome"
+								required />
+						</div>
+
+						<div class="form-group col-md-6 col-sm-6">
+							<input type="email" class="form-control" placeholder="E-mail" name="email" id="email"
+								required />
+						</div>
+
+						<div class="form-group col-md-12 col-sm-12">
+							<textarea rows="4" class="form-control" placeholder="Conte-me como posso ajuda-lo"
+								name="mensagem" id="mensagem" required></textarea>
+						</div>
+
+						<div class="col-md-12 col-sm-12 text-center">
+							<button type="submit" class="btn-contact" data-button="enviar">Enviar</button>
+						</div>
+					</div>
+				</form>
+				<div id="formMessages"></div>
+				<script>
+					class FormSubmitOne {
+						constructor(settings) {
+							this.settings = settings;
+							this.form = document.querySelector(settings.form);
+							this.formButton = document.querySelector(settings.button);
+							if (this.form) {
+								this.url = this.form.getAttribute("action");
+							}
+							this.sendForm = this.sendForm.bind(this);
+						}
+						displaySuccess() {
+							// Remover as mensagens de sucesso ou erro anteriores
+							document.getElementById("formMessages").innerHTML = "";
+
+							const successMessage = document.createElement("div");
+							successMessage.className = "mensagem";
+							successMessage.textContent = "Formulário enviado com sucesso!";
+							document.getElementById("formMessages").appendChild(successMessage);
+
+							// Limpar os campos do formulário após o envio bem-sucedido
+							const fields = this.form.querySelectorAll("[name]");
+							fields.forEach((field) => {
+								field.value = "";
+							});
+
+							// Reverter o botão de "Enviando..." para "Enviar"
+							this.formButton.disabled = false;
+							this.formButton.innerText = "Enviar";
+						}
+						displayError() {
+							// Remover as mensagens de sucesso ou erro anteriores
+							document.getElementById("formMessages").innerHTML = "";
+
+							const errorMessage = document.createElement("div");
+							errorMessage.className = "mensagem";
+							errorMessage.textContent = "Não foi possível enviar sua mensagem!";
+							document.getElementById("formMessages").appendChild(errorMessage);
+
+							// Reverter o botão de "Enviando..." para "Enviar"
+							this.formButton.disabled = false;
+							this.formButton.innerText = "Enviar";
+						}
+						getFormObject() {
+							const formObject = {};
+							const fields = this.form.querySelectorAll("[name]");
+							fields.forEach((field) => {
+								formObject[field.getAttribute("name")] = field.value;
+							});
+							return formObject;
+						}
+						onSubmission(event) {
+							event.preventDefault();
+							event.target.disabled = true;
+							event.target.innerText = "Enviando...";
+						}
+						async sendForm(event) {
+							try {
+								this.onSubmission(event);
+								await fetch(this.url, {
+									method: "POST",
+									headers: {
+										"Content-Type": "application/json",
+										Accept: "application/json",
+									},
+									body: JSON.stringify(this.getFormObject()),
+								});
+								this.displaySuccess();
+							} catch (error) {
+								this.displayError();
+								throw new Error(error);
+							}
+						}
+						init() {
+							if (this.form) this.formButton.addEventListener("click", this.sendForm);
+							return this;
+						}
+					}
+
+					const formSubmitOne = new FormSubmitOne({
+						form: "[data-form]",
+						button: "[data-button]",
+						success: "<div class='mensagem' id='mensagemEnviada'>Formulário enviado com sucesso!</div>",
+						error: "<div class='mensagem' id='mensagemEnviada'>Não foi possível enviar sua mensagem!</div>",
+					});
+
+					formSubmitOne.init();
+				</script>
+			</div>
+			<!-- Contact Form end -->
 		</div>
+
 	</div>
 </section>
 <!-- Pricing Section Ends -->
